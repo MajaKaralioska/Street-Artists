@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Last Font awesome link-->
+    <script src="https://kit.fontawesome.com/b16aa13ed7.js" crossorigin="anonymous"></script>
+    <!-- Bootsttrap link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <!-- Style css -->
+   <link rel="stylesheet" href="../starter-files/style/style.css">
+    <!--Charts-JS-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Street ARTists</title>
+    <link rel="icon" href="./images/Logo.png">
+</head>
+<body>
+    <!--Landing Page-->
+    <section class="container-fluid pb-3" id='landingPage'>
+        <div class="row">
+            <div class="col-12 header-wrapper border border-left-0 border-right-0 border-top-0 border-secondary text-center ">
+                <nav class="py-3">
+                   <div class="nav-wrapper">
+                     <h1 class="h4 mb-0">StreetARTists</h1>
+                   </div>
+                </nav>
+            </div>
+            <div class="col-12">
+                 <main>
+                   <div class="main-wrapper">
+                    <div class="logo-wrapper pb-5 pt-4">
+                        <img class="logo" src="./images/Logo.png" alt="logo">
+                    </div>
+                      <div class="polygons-wrapper">
+                         <div class="join-artist-wrapper">
+                             <div class="join-artist">
+                                <div class="artist-wrapper">
+                                   <p>Join as Artist</p>
+                                    <select name="Choose" class="join-artist-select">
+                                        <option class="choose-artist" value="" disabled="true" selected="">Choose</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="join-visitor-wrapper">
+                            <a href="#visitor">
+                                <div class="join-visitor">
+                                    <p>Join as Visitor</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+               </div>
+           </main>
+        </div>
+    </section>
+    <!--Artists Home Page-->
+    <section class="container-fluid" id="artists">
+       <div class="row">
+        <nav class="navbar navbar-expand-xl col-12 header-wrapper border border-left-0 border-right-0 border-top-0 border-secondary">
+            <a href="#landingPage"><img class="logo img-fluid" src="./images/Logo.png" alt="logo"></a>
+            <h1 class="title h4 mr-auto mt-4"></h1>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-icon"><i class="fa-solid fa-bars" style="color: #a26a5e;"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-link" href="#artists">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#artistsItems">Items</a>
+                <a class="nav-link" href="#auction">Auction</a>
+              </div>
+            </div>
+          </nav>
+       </div>
+       <div class="row bg-lightBrown py-3">
+          <div class="col-12">
+            <div class="row">
+                <div class="col-6">
+                    <div class="items-sold bg-brown py-4">
+                        <p class="title-sold">Total Items Sold</p>
+                        <p class="sold"></p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="total-income bg-brown py-4">
+                        <p class="title-income">Total Income</p>
+                        <p class="income"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+          <div class="col-12">
+            <div class="row">
+                <div class="col-12">
+                    <div class="live-auctioning-item">
+                        <p>Live Auctoning Item</p>
+                        <div id="currentBid">Currently unavailable
+                        </div> 
+                    </div>
+                </div>
+             </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-12">
+             <div class="income-days">
+				<div class="income-inner py-2">
+					<p class="description mb-2">Display my income for last</p>
+					<div class="days-btns d-flex justify-content-between">
+						<button id="7" class="btn ">7 days</button>
+						<button id="14" class="active btn ">14 days</button>
+						<button id="30" class="btn ">30 days</button>
+					</div>
+				</div>
+			</div>
+         </div>
+          <div class="col-12">
+             <div class="chart-container py-2">
+                <canvas id="myChart"></canvas>
+             </div>
+          </div>
+      </div>
+    </section>
+    <!--Artists Items Page-->
+    <section class="container-fluid" id="artistsItems">
+        <div class="row">
+            <nav class="navbar navbar-expand-xl col-12 header-wrapper border border-left-0 border-right-0 border-top-0 border-secondary">
+                <a href="#landingPage"><img class="logo img-fluid" src="./images/Logo.png" alt="logo"></a>
+                <h1 class="title-items h4 mr-auto mt-4"></h1>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-icon"><i class="fa-solid fa-bars" style="color: #a26a5e;"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                  <div class="navbar-nav">
+                    <a class="nav-link" href="#artists">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#artistsItems">Items</a>
+                    <a class="nav-link" href="#auction">Auction</a>
+                  </div>
+                </div>
+              </nav>
+        </div>
+        <!--Add new Item section-->
+        <div class="row bg-lightBrown py-3">
+            <div class="col-12  card-bg-light py-3">
+                <div class="add-new-item">
+                   <a href="#add-new-item" id="addNewItemBtn"><p class="add">+ Add New Item</p></a> 
+                </div>
+            </div>
+        </div>
+       <!--Artist items container-->
+        <div class="row" id="artist-items-container">
+            <!--Items will be rendered here by JS-->
+        </div>
+        <div class=" row confirm-screen-overlay"></div> 
+            <div class="confirm-popup col">
+				<p>Are you sure you want to delete this item?</p>
+				<button class="cancel card-bg-light btn">Cancel</button>
+				<button class="confirm btn btn-orange">Confirm</button>
+			</div>
+    </section>
+    <!--Add New Item Page-->
+    <section class="container-fluid" id="add-new-item" >
+        <div class="row">
+            <nav class="navbar navbar-expand-xl col-12 header-wrapper border border-left-0 border-right-0 border-top-0 border-secondary">
+                <a href="#landingPage"><img class="logo img-fluid" src="./images/Logo.png" alt="logo"></a>
+                <h1 class="title-add h4 mr-auto mt-4"></h1>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-icon"><i class="fa-solid fa-bars" style="color: #a26a5e;"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                  <div class="navbar-nav">
+                    <a class="nav-link" href="#artists">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#artistsItems">Items</a>
+                    <a class="nav-link" href="#auction">Auction</a>
+                  </div>
+                </div>
+              </nav>
+        </div>
+        <div class="row bg-brown py-3 form-container">
+            <div class="col-12 py-2">
+                <div class="d-flex justify-content-between">
+                    <h1 class="main-title">Add new item</h1>
+                    <form class="align-self-end">
+                        <label for="isPublished" class="isPublishedLabbel">Is Published:</label>
+                        <input type="checkbox" id="isPublished" name="isPublished" checked>
+                    </form>
+                </div>
+            </div>
+            <form id="addItemForm">
+                <div class="col-12 py-2">
+                    <label for="textInput">Title</label>
+                    <input type="text" class="form-control" id="textInput" required>
+                </div>
+                <div class="col-12 py-2">
+                    <label for="description">Description</label>
+                    <textarea name="description" id="description" class="form-control"></textarea>
+                </div>
+                <div class="col-12 py-2 d-flex justify-content-between">
+                    <div class="add-type">
+                        <label for="addType">Type</label>
+                        <select name="addType" id="addType" class="form-control" required>
+                            <!-- Options dynamically populated from data.js -->
+                        </select>
+                    </div>
+                    <div class="add-price">
+                        <label for="addPrice">Price</label>
+                        <input type="number" id="addPrice" class="form-control" required>
+                    </div>
+                </div>
+                <div class="col-12 py-2">
+                    <label for="imageUrl">Image URL:</label>
+                    <input type="text" id="imageUrl" name="imageUrl" class="form-control" required>
+                </div>
+                <div class="col-12 py-2">
+                    <p class="text-center">or</p>
+                    <div class="caption-container d-flex flex-column align-items-center justify-content-center">
+                        <button class="del-img-btn"><img src="./Images/trash-can-solid.svg" class="trashImage"></button>
+                        <div class="popup" id="snapshotPopup">
+                            <a href="#artist-capture" id="takeShapshot">
+                                <img src="Images/camera.svg" alt="camera" class="shapShotImage">
+                            </a>
+                            <img class="captured-image img-fluid" src="" alt="captured-image">
+                            <p class="mt-2 takeShapshotPara">Take Snapshot</p>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="col-12 py-3">
+                    <div class="row buttons">
+                        <div class="col-6">
+                            <button type="submit" class="btn btn-orange btn-block" id="addBtn">Add new Item</button>
+                        </div>
+                        <div class="col-6">
+                            <button type="button" class="btn btn-light btn-block" id="cancelBtn">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <!--Artist Capture-->
+    <section class="container-fluid" id="artist-capture">
+    <div class="row">
+        <nav class="navbar navbar-expand-xl col-12 header-wrapper border border-left-0 border-right-0 border-top-0 border-secondary">
+            <a href="#landingPage"><img class="logo img-fluid" src="./images/Logo.png" alt="logo"></a>
+            <h1 class="title-capture h4 mr-auto mt-4"></h1>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-icon"><i class="fa-solid fa-bars" style="color: #a26a5e;"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-link" href="#artists">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#artistsItems">Items</a>
+                <a class="nav-link" href="#auction">Auction</a>
+              </div>
+            </div>
+          </nav>
+    </div>
+    <div class="row  bg-brown">
+        <div class="col-12">
+            <div class="capture-window-wrapper">
+                <video  id="liveStream" autoplay></video>
+                <canvas id="captureCanvas"></canvas>
+                <button id="captureImageBtn"><img src="./Images/cameraOne.svg" alt="btnImageCaption"></button>
+            </div>
+        </div>
+    </div>
+    </section>
+    <!--Visitor-->
+    <section class="container-fluid" id="visitor">
+        <!--Header visitor page-->
+        <div class="row navigation-menu">
+            <!--Navigation menu-->
+            <div class="col-12 header-wrapper border border-left-0 border-right-0 border-top-0 border-secondary">
+                <nav>
+                    <div class="nav-wrapper d-flex justify-content-between">
+                        <div class="logo-title d-flex flex-start">
+                            <a href="#landingPage"><img class="logo img-fluid" src="./images/Logo.png" alt="logo"></a>
+                            <h1 class="title h4 align-self-center">StreetARTists</h1>
+                        </div>
+                        <div class="auciton-icon">
+                            <a href="#auction"><img src="Images/auctionVector.png" alt="auciton-icon" class="img-fluid auction-image"></a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+         </div> 
+            <!--Brick container-->
+            <div class="col-12 bg-brick py-5">
+                <div class="row px-3">
+                    <div class="col-7 p-0 content">
+                        <h2 class="h4 font-weight-bolder">Looking for a masterpiece?</h2>
+                    </div>
+                    <div class="col-5 text-right p-0">
+                        <a href="#visitorListing" class="btn btn-brown text-white my-3">Find one now!</a>
+                    </div> 
+                </div>
+            </div>
+            <!--Slider wrapper container-->
+            <div class="sliders-wrapper">
+                <div class="slider1">
+                   <div class="slide">
+                      <a href="#visitorListing"><img src="./Images/SliderImages/img1.jpg" ></a>
+                   </div>
+                   <div class="slide">
+                    <a href="#visitorListing"><img src="./Images/SliderImages/img2.jpg" ></a>
+                 </div>
+                 <div class="slide">
+                    <a href="#visitorListing"><img src="./Images/SliderImages/img3.jpg" ></a>
+                 </div>
+                 <div class="slide">
+                    <a href="#visitorListing"><img src="./Images/SliderImages/img4.jpg" ></a>
+                 </div>
+                 <div class="slide">
+                    <a href="#visitorListing"><img src="./Images/SliderImages/img5.jpg" ></a>
+                 </div>
+                 <div class="slide">
+                    <a href="#visitorListing"><img src="./Images/SliderImages/img6.jpg" ></a>
+                 </div>
+                 <div class="slide">
+                    <a href="#visitorListing"><img src="./Images/SliderImages/img7.jpg" ></a>
+                 </div>
+                 <div class="slide">
+                    <a href="#visitorListing"><img src="./Images/SliderImages/img8.jpg" ></a>
+                 </div>
+                 <div class="slide">
+                    <a href="#visitorListing"><img src="./Images/SliderImages/img9.jpg" ></a>
+                 </div>
+                   <!-- Same 9 slides -->
+                   <div class="slide">
+                    <a href="#visitorListing"><img src="./Images/SliderImages/img1.jpg" ></a>
+                 </div>
+                 <div class="slide">
+                  <a href="#visitorListing"><img src="./Images/SliderImages/img2.jpg" ></a>
+               </div>
+               <div class="slide">
+                  <a href="#visitorListing"><img src="./Images/SliderImages/img3.jpg" ></a>
+               </div>
+               <div class="slide">
+                  <a href="#visitorListing"><img src="./Images/SliderImages/img4.jpg" ></a>
+               </div>
+               <div class="slide">
+                  <a href="#visitorListing"><img src="./Images/SliderImages/img5.jpg" ></a>
+               </div>
+               <div class="slide">
+                  <a href="#visitorListing"><img src="./Images/SliderImages/img6.jpg" ></a>
+               </div>
+               <div class="slide">
+                  <a href="#visitorListing"><img src="./Images/SliderImages/img7.jpg" ></a>
+               </div>
+               <div class="slide">
+                  <a href="#visitorListing"><img src="./Images/SliderImages/img8.jpg" ></a>
+               </div>
+               <div class="slide">
+                  <a href="#visitorListing"><img src="./Images/SliderImages/img9.jpg" ></a>
+               </div>
+               </div>
+                <div class="slider2">
+                       <!-- 9 Slides -->
+                    <div class="slide">
+                        <a href="#visitorListing"><img src="./Images/SliderImages/img9.jpg" ></a>
+                     </div>
+                     <div class="slide">
+                      <a href="#visitorListing"><img src="./Images/SliderImages/img8.jpg" ></a>
+                   </div>
+                   <div class="slide">
+                      <a href="#visitorListing"><img src="./Images/SliderImages/img7.jpg" ></a>
+                   </div>
+                   <div class="slide">
+                      <a href="#visitorListing"><img src="./Images/SliderImages/img6.jpg" ></a>
+                   </div>
+                   <div class="slide">
+                      <a href="#visitorListing"><img src="./Images/SliderImages/img5.jpg" ></a>
+                   </div>
+                   <div class="slide">
+                      <a href="#visitorListing"><img src="./Images/SliderImages/img4.jpg" ></a>
+                   </div>
+                   <div class="slide">
+                      <a href="#visitorListing"><img src="./Images/SliderImages/img3.jpg" ></a>
+                   </div>
+                   <div class="slide">
+                      <a href="#visitorListing"><img src="./Images/SliderImages/img2.jpg" ></a>
+                   </div>
+                   <div class="slide">
+                      <a href="#visitorListing"><img src="./Images/SliderImages/img1.jpg" ></a>
+                   </div>
+                   <!-- Same 9 slides -->
+                   <div class="slide">
+                    <a href="#visitorListing"><img src="./Images/SliderImages/img9.jpg" ></a>
+                 </div>
+                 <div class="slide">
+                  <a href="#visitorListing"><img src="./Images/SliderImages/img8.jpg" ></a>
+               </div>
+               <div class="slide">
+                  <a href="#visitorListing"><img src="./Images/SliderImages/img7.jpg" ></a>
+               </div>
+               <div class="slide">
+                  <a href="#visitorListing"><img src="./Images/SliderImages/img6.jpg" ></a>
+               </div>
+               <div class="slide">
+                  <a href="#visitorListing"><img src="./Images/SliderImages/img5.jpg" ></a>
+               </div>
+               <div class="slide">
+                  <a href="#visitorListing"><img src="./Images/SliderImages/img4.jpg" ></a>
+               </div>
+               <div class="slide">
+                  <a href="#visitorListing"><img src="./Images/SliderImages/img3.jpg" ></a>
+               </div>
+               <div class="slide">
+                  <a href="#visitorListing"><img src="./Images/SliderImages/img2.jpg" ></a>
+               </div>
+               <div class="slide">
+                  <a href="#visitorListing"><img src="./Images/SliderImages/img1.jpg" ></a>
+               </div>
+               </div>
+           </div>
+            <!--Carousel wrapper-->
+            <div class="col-12 carousel-wrapper py-3">
+                <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active" data-interval="10000">
+                        <div class="row py-4">
+                           <div class="col-10 offset-1">
+                            <div class="row">
+                                <div class="col-6 p-4 border-brown">
+                                    <div class="carousel-box">
+                                        <div class="artist-img text-center">
+                                            <img src="Images/Carousel-Images/artist1.jpg" alt="image" class="img-fluid rounded-circle w-50 border-rounded">
+                                        </div>
+                                        <div class="text-content text-center mt-2 p-1">
+                                            <p class="mt-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi aut nam eligendi, dignissimos atque in. .</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 p-4 d-flex justify-content-center align-items-center">
+                                    <div class="text-content-only text-center">
+                                        <p class="mt-3"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, odio mollitia officia ducimus assumenda quidem quia eum voluptates in amet. Lorem, ipsum dolor possimus.</p>
+                                    </div>
+                                </div>
+                            </div>
+                           </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item" data-interval="2000">
+                        <div class="row py-4">
+                            <div class="col-10 offset-1">
+                                <div class="row">
+                                    <div class="col-6 p-4 border-brown">
+                                        <div class="carousel-box">
+                                            <div class="artist-img text-center">
+                                                <img src="Images/Carousel-Images/artist2.jpg" alt="image" class="img-fluid rounded-circle w-50 border-rounded">
+                                            </div>
+                                            <div class="text-content text-center mt-3 p-1">
+                                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi aut nam eligendi, dignissimos atque in. .</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 p-4 d-flex justify-content-center align-items-center">
+                                        <div class="text-content-only text-center">
+                                            <p class="mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, odio mollitia officia ducimus assumenda quidem quia eum voluptates in amet. Lorem, ipsum dolor possimus.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                           </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <div class="row py-4">
+                            <div class="col-10 offset-1">
+                                <div class="row">
+                                    <div class="col-6 p-4 border-brown">
+                                        <div class="carousel-box">
+                                            <div class="artist-img text-center">
+                                                <img src="Images/Carousel-Images/artist3.jpg" alt="image" class="img-fluid rounded-circle w-50 border-rounded">
+                                            </div>
+                                            <div class="text-content text-center mt-3 p-1">
+                                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi aut nam eligendi, dignissimos atque in. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 p-4 d-flex justify-content-center align-items-center">
+                                        <div class="text-content-only text-center">
+                                            <p class="mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, odio mollitia officia ducimus assumenda quidem quia eum voluptates in amet. Lorem, ipsum dolor possimus.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev " type="button" data-target="#carouselExampleInterval" data-slide="prev">
+                      <span class="carousel-control-prev-icon-svg mr-5" aria-hidden="true">
+                        <svg width="15" height="54" viewBox="0 0 15 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 1L1 26.2877L14 53" stroke="#A26A5E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                      </span>
+                      <span class="sr-only">Previous</span>
+                    </button>
+                    <button class="carousel-control-next " type="button" data-target="#carouselExampleInterval" data-slide="next">
+                      <span class="carousel-control-next-icon-svg ml-4" aria-hidden="true">
+                        <svg width="15" height="54" viewBox="0 0 15 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1L14 26.2877L1 53" stroke="#A26A5E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                      </span>
+                      <span class="sr-only">Next</span>
+                    </button>
+                  </div>
+            </div>
+        </div>
+    </section>
+    <!--Visitor Listing-->
+    <section class="container-fluid" id="visitorListing">
+        <div class="row  navigation-menu">
+            <!--Navigation menu-->
+            <div class="col-12 header-wrapper border border-left-0 border-right-0 border-top-0 border-secondary">
+                <nav>
+                    <div class="nav-wrapper d-flex justify-content-between">
+                        <div class="logo-title d-flex flex-start">
+                            <a href="#landingPage"><img class="logo img-fluid" src="./images/Logo.png" alt="logo"></a>
+                            <h1 class="title h4 align-self-center">StreetARTists</h1>
+                        </div>
+                        <div class="auciton-icon">
+                            <a href="#auction"><img src="Images/auctionVector.png" alt="auction-icor" class="img-fluid auction-image"></a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+         </div> 
+        <!--Cards-Container-->
+        <div class="visitor-listing-content">
+            <div class="row py-4 justify-content-md-center card-container">   
+            </div>
+            <div class="no-items-screen-overlay active"></div>
+            <div class="no-items-popup active">
+				<p>No items found</p>
+				<p class="sorry">We're sorry... No items match this filter</p>
+                <p>Try again by clicking the filter button down below</p>
+			</div>
+            <div class="filterBtn"><a href="#filters-section" class="btn" id="filterBtn"><img src="./images/filterBtnIcon.svg" alt="filter-image"></a></div>
+        </div>
+         <!--Filters container--> 
+        <section class="container-fluid" id ='filters-section'>
+             <div class="row py-4 visitor-filters" id="filters">
+                <div class="col-12 d-flex justify-content-between filter">
+                    <div class="filter-title">
+                        <h1 class="h2 filter-h1">Filter By</h1>
+                    </div>
+                    <div class="close-btn">
+                       <a href="#visitorListing" class="btn" id="closeBtn"><img src="Images/close-icon.svg" alt="close-img"> </a> 
+                    </div>
+                </div>
+                <div class="col-12 filter-by-item filter">
+                    <div class="filter-item d-flex flex-column">
+                     <label for="item">By Item title</label>
+                     <input type="text" name="item" id="item" class="form-control" placeholder="Item Title">
+                    </div>
+                </div>
+                <div class="col-12 filter-by-artists filter">
+                    <div class="filter-artists d-flex flex-column">
+                     <label for="item">By Artist</label>
+                     <select name="Choose" class="choose-artist-select form-control">
+                        <option class="choose-option" value="" disabled="true" selected="">Choose</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="col-12 filter-by-price filter">
+                    <div class="filter-price d-flex flex-column">
+                        <label for="item">By Price</label>
+                        <div class="prices d-flex justify-content-between">
+                            <div class="min-price d-flex justify-content-between">
+                                <label for="min-price" class="align-self-center">Min: 
+                                </label>
+                                <input type="number" id="min-price" placeholder="Price" class="form-control ml-3">
+                            </div>
+                            <div class="max-price d-flex justify-content-between">
+                                <label for="max-price" class="align-self-center">Max:
+                                </label>
+                                <input type="number" id="max-price" placeholder="Price" class="form-control ml-3">
+                            </div>    
+                        </div>
+                     </div>
+                </div>
+                <div class="col-12 filter-by-type filter">
+                    <div class="filter-artists d-flex flex-column">
+                     <label for="item">By Type</label>
+                     <select name="Choose" class="choose-type-select form-control">
+                        <option class="choose-opt" value="" disabled="true" selected="">Choose</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="col-12 text-right">
+                    <div class="filter-check">
+                       <a href="#visitorListing" id="checkBtn"><img src="Images/check-icon.svg" alt="check-image"></a> 
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <!--Auction-->
+    <section class = "container-fluid" id="auction">
+        <div class="row  navigation-menu">
+            <!--Navigation menu-->
+            <div class="col-12 header-wrapper border border-left-0 border-right-0 border-top-0 border-secondary">
+                <nav>
+                    <div class="nav-wrapper d-flex justify-content-between">
+                        <div class="logo-title d-flex flex-start">
+                            <a href="#landingPage"><img class="logo img-fluid" src="./images/Logo.png" alt="logo"></a>
+                            <h1 class="title h4 align-self-center">StreetARTists</h1>
+                        </div>
+                        <div class="back-btn-container align-self-center">
+                           <button class="btn back-btn"><i class="fa-solid fa-left-long mt-3 mr-2" style="color: #a26a5e;"></i></button> 
+                        </div>
+                    </div>
+                </nav>
+            </div>
+         </div> 
+         <!-- Auction container -->
+    <div class="row auction-wrapper">
+        <div class="col-12 noAuctionInProgress border text-center mt-5 ">
+           <div class="no-auction-snap">
+            <h3>No active auction in progress!</h3>
+         </div>
+    </div>
+   <div class="row bid-content">
+       <div class="col-12">
+          <div class="auction-item-container">
+            <!-- Current auction item will be rendered here -->
+          </div>
+        <div id="time" class="timer text-center"></div>
+        
+    </div>
+    <div class="col-12">
+        <form class="yourBid mt-2">
+            <p>Enter your bid</p>
+            <h5>$<input type="number" class="bidAmount"></h5>
+            <button type="submit" class="bidBtn btn-brown mt-2"></button>
+        </form>
+    </div>
+    <!-- Bidding ul container -->
+    <div class="col-12 justify-content-center  align-items-center">
+        <div class="d-flex justify-content-center align-items-center mt-3 mr-4">
+            <ul class="list yourBids text-center">
+                <li class="mb-2 list-group-item your">Your Bids</li>
+                <li class="bid list-group-item"><i class="fa-solid fa-user m-1" aria-hidden="true"></i></li>
+            </ul>
+            <ul id="otherBidsList" class="list otherBids text-center"> <!-- Updated the ID to 'otherBidsList' -->
+                <li class="mb-2 list-group-item other">Other Bids</li>
+                <li class="otherBid list-group-item"><i class="fa-solid fa-user m-1" aria-hidden="true"></i></li>
+            </ul>            
+        </div>
+    </div>
+  </div>
+</div>
+    </section>
+    <!--Responive Modal Information about the aplication-->
+    <div class="modal-container">
+        <div class="modal-wrapper">
+            <div class="my-modal">
+              <h3>Information</h3>
+              <p>For Better Experience, Please use mobile device (maximum of 700px screen) as this app was designed only for mobile devices </p>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap jquery -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <!-- Boostrap Popper-js -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <!-- Bootstrap-min-js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+</body>
+<!-- main js file path -->
+<script type="module" src="js/main.js"></script>
+</html>

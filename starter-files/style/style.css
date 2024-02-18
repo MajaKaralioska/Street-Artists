@@ -1,0 +1,771 @@
+@import url('https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Reenie+Beanie&family=Roboto:ital,wght@0,100;0,300;0,400;1,100&display=swap');
+* {
+  font-family: "Reenie Beanie", "sans-serif";
+}
+
+.preload * {
+  transition: none !important;
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Global styles */
+body {
+  background-color: rgb(252, 235, 213);
+}
+
+/* Navigation styles */
+.nav-wrapper h1 {
+  color: rgb(161, 106, 94);
+  font-size: 30px;
+}
+
+.header-wrapper {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 2px;
+  padding: 0;
+  position: relative;
+}
+.logo{
+  width: 104px;
+  margin-bottom: -30px;
+  z-index: 1111;
+}
+#visitor .header-wrapper h1, #visitorListing .header-wrapper h1, #filters-section .header-wrapper h1{
+  position: absolute;
+  top: 30px;
+  left: 95px;
+}
+.header-wrapper .auction-image{
+  position: absolute;
+  top: 30px;
+  right: 15px;
+}
+/* Landing Page styles */
+#landingPage .main-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} 
+
+@media (max-width: 425px){
+    .main-wrapper .logo {
+        padding: 1rem 0px;
+    }
+}
+.polygons-wrapper {
+  position: relative;
+  height: 392.5px;
+  width: 260px;
+}
+
+.join-artist,
+.join-visitor {
+  position: absolute;
+  height: 276.5px;
+  width: 260px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+#landingPage .join-artist-wrapper,
+#landingPage .join-visitor-wrapper {
+  position: absolute;
+  transition: filter 0.7s ease 0s;
+}
+
+#landingPage .join-artist {
+  top: 0px;
+  clip-path: polygon(0px 0px, 100% 0%, 100% 100%, 0px 42%);
+  background-color: rgb(237, 213, 187);
+}
+
+#landingPage .join-artist .artist-wrapper {
+  position: absolute;
+  top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+#landingPage .join-artist p {
+  color: rgb(161, 106, 94);
+  font-size: 40px;
+}
+
+#landingPage .join-artist .join-artist-select {
+  width: 97px;
+  height: 27px;
+  color: rgb(161, 106, 94);
+  font-weight: 300;
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  border-radius: 2px;
+  background: none;
+  border: 1px solid rgb(161, 106, 94);
+  outline: none;
+  transition: all 0.03s ease 0s;
+}
+
+#landingPage .join-visitor-wrapper {
+  bottom: 0px;
+}
+
+#landingPage .join-visitor {
+  bottom: 0px;
+  clip-path: polygon(0px 0px, 100% 58%, 100% 100%, 0px 100%);
+  background-color: rgb(161, 106, 94);
+}
+
+#landingPage .join-visitor p {
+  position: absolute;
+  bottom: 45px;
+  color: rgb(237, 213, 187);
+  font-size: 40px;
+}
+
+#landingPage .join-artist:hover, #landingPage .join-visitor:hover {
+    transform: scale(1.1) translate(0px, -5px);
+    box-shadow: 5px 5px 10px rgba(56, 54, 54, 0.2);
+}
+
+ .join-artist-wrapper:hover, .join-visitor-wrapper:hover {
+    animation-timeline: auto;
+    animation-range-start: normal;
+    animation-range-end: normal;
+    position: absolute;
+    filter: drop-shadow(rgba(0, 0, 0, 0.66) -1px 5px 23px);
+    animation: 1.2s linear 0s 1 normal forwards running backtofront;
+}
+
+/*! Visitor-HomePage-Style */
+ #visitor {
+    background-color: #FCEBD5;
+ }
+ .bg-brick{
+  background-image: url(../Images/Bricks.png);
+ }
+ .btn-brown{
+  background-color:  rgb(161, 106, 94);
+  font-family: 'Roboto';
+  color: #EDD5BB;
+ }
+ .content h2{
+  font-family: 'Roboto';
+  color:  rgb(161, 106, 94);
+ }
+ /* slider container */
+ #visitor .sliders-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #EDD5BB;
+  overflow: hidden;
+  padding: 4.2vh 0;
+}
+#visitor .sliders-wrapper .slider1, #visitor .sliders-wrapper .slider2 {
+  display: flex;
+  width: 540vh;
+  perspective: 100px;
+}
+#visitor .sliders-wrapper .slider1:hover, #visitor .sliders-wrapper .slider2:hover {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+#visitor .sliders-wrapper .slider1 {
+  -webkit-animation: slideLeft 50s linear infinite;
+          animation: slideLeft 50s linear infinite;
+  margin-bottom: 4.9vh;
+}
+#visitor .sliders-wrapper .slider2 {
+  -webkit-animation: slideRight 50s linear infinite;
+          animation: slideRight 50s linear infinite;
+}
+#visitor .sliders-wrapper .slide {
+  height: 17vh;
+  width: 30vh;
+  perspective: 100px;
+}
+#visitor .sliders-wrapper .slide img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  padding: 0 1.75vh;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(-5px -5px 5px rgba(0, 0, 0, 0.3));
+  cursor: pointer;
+}
+
+@-webkit-keyframes slideLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-270vh);
+  }
+}
+@keyframes slideLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-270vh);
+  }
+}
+@-webkit-keyframes slideRight {
+  0% {
+    transform: translateX(-270vh);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes slideRight {
+  0% {
+    transform: translateX(-270vh);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+#visitor .sliders-wrapper .slide a img {
+  transition: transform 0.3s ease-in-out; 
+}
+#visitor .sliders-wrapper .slide a img:hover {
+  transform: scale(1.3); 
+}
+
+/* div-container-carousel */
+.carousel-box{
+    background-color: #e09686;
+    color: white;
+    overflow: visible;
+}
+.artist-img img{
+  max-width: 100px;
+  margin-top: -25px;
+}
+.text-content p, .text-content-only p {
+  font-family: 'Roboto';
+  font-size: 10px;
+}
+.text-content-only p {
+  color: #a26a5e;
+}
+.border-brown{
+  border-right: 2px solid rgb(161, 106, 94); ;
+}
+.border-rounded{
+  border: 3px solid  rgb(161, 106, 94); 
+}
+
+/*! style for Section VisitorListing */
+#visitorListing .card-container{
+  background-color: #edd5bb;
+}
+#visitorListing .col-12{
+  height: fit-content;
+}
+.card img{
+  height: 190px;
+  width: 100%;
+  object-fit: cover
+}
+.card-title{
+  font-weight:800;
+}
+.card-artist{
+  font-weight: 600;
+}
+.card-body {
+  padding: 8px 15px;
+}
+.card-body p {
+  margin-top: 0;
+}
+.card-bg-dark{
+  background-color: #a26a5e ;
+  color: #fcebd5;
+}
+.card-bg-light{
+  background-color: #fcebd5;
+  color:#a26a5e;
+}
+.card-container .cards{
+  padding-left: 0;
+  padding-right: 0;
+}
+.card-text, .card h6{
+  line-height: normal;
+  font-family: Roboto;
+}
+.card h6 {
+  font-size: 15px;
+}
+.card-text {
+  font-size: 13px;
+  margin-top: 5px;
+}
+.card-container .btn{
+  font-size: 10px;
+  font-family: Roboto;
+}
+  .filterBtn{
+  position: fixed;
+  right: 10px;
+  bottom: 0;
+  z-index: 1000;
+}
+
+/*! style for visitor-Filters */
+#filters-section {
+  background-color: #a26a5e;
+  color: #edd5bb;
+  position: absolute;
+  top: 74px;
+  right: 0;
+  width: 100%;
+  animation-duration: 0.6s;
+  animation-timing-function: ease;
+  animation-fill-mode: both;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.filters-open #filters-section {
+  animation-name: slideIn;
+}
+
+.filters-closed #filters-section {
+  animation-name: slideOut;
+}
+
+.filters-closed .visitor-listing-content {
+  display: block;
+}
+
+.form-control {
+  width: 120px;
+  background-color: #a26a5e;
+  color: #edd5bb;
+  margin-bottom: 15px;
+  
+}
+.filter-item, .filter-artists, .filter-price, .filter-type{
+  border-bottom: 2px solid #edd5bb ;
+  margin-bottom: 15px;
+  padding: 20px 10px;
+}
+#filters-section input::placeholder{
+  color: #EDD5BB;
+}
+.form-control:focus {
+  color: #EDD5BB;
+  background-color: #a26a5e;
+  border-color: #EDD5BB;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgb(237, 213, 187);
+}
+#visitorListing .no-items-screen-overlay.active {
+  height: 100%;
+  opacity: 0.8;
+}
+#visitorListing .no-items-screen-overlay {
+  width: 100%;
+  height: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #EDD5BB;
+  opacity: 0;
+  z-index: 11;
+}
+.back-btn {
+  background-color: #EDD5BB;
+  font-family: Roboto;
+  color: #A16A5E;
+}
+
+#visitorListing .no-items-popup.active {
+  opacity: 1;
+  pointer-events: all;
+}
+#visitorListing .no-items-popup {
+  opacity: 0;
+  transition: opacity 20ms ease-in;
+  pointer-events: none;
+  z-index: 12;
+  background-color: #A16A5E;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  border-radius: 5px;
+}
+.no-items-popup p{
+  font-family: 'Roboto';
+  color: #EDD5BB;
+  margin-bottom: 8px;
+}
+.filter-h1{
+  margin-left: 8px;
+}
+select option {
+  font-family: 'Roboto', sans-serif;
+}
+
+@media (min-width: 768px) {
+  .cards-wrapper .card-wrapper {
+    width: 50%;
+    padding: 0 1rem;
+}
+}
+.modal-wrapper, .modal-container, .my-modal{
+  display: none;
+}
+@media (min-width: 700px) {
+  .modal-container {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999999;
+  }
+
+  .modal-wrapper {
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .modal-wrapper .my-modal {
+    display: block;
+    position: relative;
+    width: 450px;
+    background-color: #a26a5e;
+    color: #fcebd5;
+    padding: 60px 20px;
+    border-radius: 20px;
+    font-size: 25px;
+    font-family: sans-serif;
+    text-align: center;
+  }
+}
+
+/*! style for Artists Home Page */
+#artists .title, .title-items , .title-add{
+  color: rgb(161, 106, 94);
+  font-size: 30px;
+}
+.navbar-icon i{
+  font-size: 30px;
+  margin-top: 15px;
+}
+.navbar-nav{
+  background-color: #a26a5e;
+  text-align: center;
+}
+.navbar-nav a{
+  font-family: 'Roboto';
+  color: #fcebd5;
+  font-family: Roboto;
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 50px;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+.bg-lightBrown {
+  background-color: #EDD5BB;
+}
+.bg-brown{
+  background-color: #A16A5E;
+  color:#EDD5BB;
+  text-align: center;
+}
+.bg-brown p, .description{
+  font-family: 'Roboto';
+}
+.bg-brown .title-income, .bg-brown .title-sold, .description{
+  font-weight: 300;
+  font-size: 22px;
+}
+.income, .sold{
+  font-size: 50px;
+}
+.live-auctioning-item{
+  background-color: #D44C2E;
+  color: #EDD5BB;
+  margin: 15px 0;
+  padding: 30px;
+  text-align: center;
+}
+.live-auctioning-item p, #currentBid{
+  font-family: 'Roboto';
+  font-size: 22px;
+}
+.btn-orange {
+  background-color: rgb(212, 76, 46);
+  font-family: 'Roboto';
+  color: #EDD5BB;
+  border-radius: 2px;
+}
+#artists .btn-brown{
+  border-radius: 2px;
+}
+.description{
+  color: #A16A5E;
+}
+
+/*! style for Items-Artists page */
+.add-new-item{
+  border: 2px dashed #A16A5E;
+  padding: 40px;
+}
+.add {
+  text-align: center;
+  font-family: "Roboto";
+  color: #A16A5E;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 40px;
+  cursor: pointer;
+}
+.item-title, .item-date, .item-btn{
+  margin-bottom: 0;
+  font-family: 'Roboto';
+}
+.item-title, .item-btn{
+  font-size: 14px;
+}
+.item-date{
+  font-size: 10px;
+}
+#artistsItems .btn{
+  font-family: 'Roboto';
+  padding: 2px 10px;
+  font-size: 13px;
+  border-radius: 2px;
+}
+ .confirm-screen-overlay {
+  width: 100%;
+  height: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #EDD5BB;
+  opacity: 0;
+  z-index: 11;
+}
+ .confirm-screen-overlay.active {
+  height: 100%;
+  opacity: 0.8;
+}
+ .confirm-popup {
+  font-family: 'Roboto';
+  opacity: 0;
+  transition: opacity 20ms ease-in;
+  pointer-events: none;
+  z-index: 12;
+  background-color: #A16A5E;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  border-radius: 5px;
+}
+.confirm-popup p{
+  font-family: 'Roboto';
+  color: #EDD5BB;
+  margin-bottom: 10px;
+}
+ .confirm-popup.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/*! style for add new item */
+.form-container{
+  width: fit-content;
+  height: fit-content;
+}
+.main-title{
+font-family:'Roboto';
+font-size: 30px;
+font-weight: 500;
+line-height: 35px;
+letter-spacing: 0em;
+}
+.isPublishedLabbel, #cancelBtn{
+  font-family:'Roboto';
+  margin-bottom: 0;
+}
+#addItemForm, #addItemForm .form-control{
+  width: 100%;
+  font-family:'Roboto';
+}
+.form-control{
+  border:1px solid #EDD5BB;
+}
+#add-new-item form{
+  text-align: left;
+}
+#add-new-item label{
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 0;
+}
+.caption-container{
+  border: 1px dashed #FCEBD5;
+  height: 309px;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.popup{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.del-img-btn{
+  display: none;
+ align-self: flex-end;
+  margin-bottom: 15px;
+  margin-right: 10px ;
+  background-color: #EDD5BB;
+  border: 2px dotted #D44C2E;
+  border-radius: 6px;
+}
+.capture-window-wrapper{
+  height: 657px;
+  background-color:rgb(85, 80, 80);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+#liveStream {
+  margin-bottom: 15px;
+}
+#captureImageBtn{
+  margin-top: 15px;
+  background-color: transparent;
+  border-radius: 8px;
+}
+#captureImageBtn img{
+  width: 50px;
+}
+/*! style for Auction page */
+.no-auction-snap{
+  background-color:#A16A5E;
+  color:#EDD5BB;
+  padding: 30px;
+}
+#auction .title{
+  margin-bottom: 0;
+  margin-top: 15px;
+}
+.timer{
+  font-family: 'Roboto';
+  color: #a26a5e;
+}
+.yourBid, .yourBid p, .list li, h5{
+  font-family: 'Roboto';
+  color: #a26a5e;
+  text-align: center;
+}
+.your, .other{
+  background-color:#edd5bb;
+}
+.bidAmount{
+  background-color: #A16A5E;
+  border: none;
+  color: #edd5bb;
+  outline: #edd5bb;
+  border-radius: 5px;
+  padding: 8px 12px;
+}
+.list-group-item {
+  padding: 8px 14px;
+}
+.btn-blue{
+  background-color: #4c4cce;
+  color: #f0f8ff;
+}
+.highestBid {
+  background-color: #ffd700; 
+  font-weight: bold;
+}
+.back-btn-container i{
+  font-size: 30px;
+  margin-top: 10px;
+}
+.back-btn{
+  background-color: transparent;
+}
