@@ -1,4 +1,4 @@
-# StreetARTistis
+# StreetARTists
 
 StreetARTistis is a pioneering web platform tailored to empower street artists by offering them a dedicated space to meticulously manage their financial transactions and proudly exhibit their unparalleled creations.
 StreetARTistis is a groundbreaking initiative designed to offer street artists a comprehensive digital platform to manage their earnings and exhibit their exceptional artworks. This platform also caters to visitors who wish to explore and acquire these masterpieces.
